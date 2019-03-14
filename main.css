@@ -1,0 +1,15 @@
+.js-start-page, h1 {
+    text-align:center;
+}
+
+p, button {
+    text-align:center;
+    font-size: 20px;
+}
+
+.right {
+    color: green;
+}
+.wrong {
+    color: red;
+}
