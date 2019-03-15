@@ -1,15 +1,104 @@
-.js-start-page, h1 {
-    text-align:center;
+* {
+    box-sizing: border-box;
 }
-
-p, button {
-    text-align:center;
+img {
+    position: relative;
+    height: 50px;
+    width: 60px;
+}
+.xbox {
+    float:right;
+}
+body {
+    margin-top: 25px;
+    border: 2px solid #C8DEFF;
+    min-width: 320px;
+    height: 600px;
+    margin-left: auto;
+    margin-right:auto;
+    background-color: #3B3F45;
+    font-family: 'Domine', serif;
+}
+h1{
+    font-size: 25px;
+}
+.js-start-page, h1 {
+    text-align: center;
+    color: #FF9000;
+}
+h2 {
+    color:#C8DEFF;
+    font-weight: normal;
+    margin-left: 20px;
+}
+fieldset {
+    color: #F0F0DF;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+button {
+    border: none;
+    background-color:#FF9000;
+    color:#3B3F45;
+    margin-top: 20px;
     font-size: 20px;
 }
-
-.right {
-    color: green;
+.inline{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-left:20px;
+    margin-right:20px;
 }
-.wrong {
-    color: red;
+
+#js-submit-button, #js-next-button {
+    margin-right:auto;
+    height: 23px;
+    width: 75px;
+}
+
+p {
+    color: #C8DEFF;
+    font-size: 20px;
+}
+.answer {
+    color: #FF9000;
+    font-size: 22px;
+}
+label:hover {
+    font-weight: bold;
+    opacity: 1;
+}
+input:checked + label {
+    opacity: 1;
+}
+#container {
+    text-align:center;
+}
+#questionForm {
+    text-align: left;
+}
+label {
+    opacity: .8;
+    color:#FF9000;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+
+@media screen and (min-width: 525px) {
+    body {
+        width: 525px;
+        
+    }
+    label {
+        font-size: 22px;
+    }
+    .answer {
+        font-size: 30px;
+    }
+    h1{
+        font-size: 34px;
+    }
 }

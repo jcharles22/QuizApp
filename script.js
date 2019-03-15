@@ -82,6 +82,7 @@ correct: "Nintendo Entertainment System"
 ];
 let page = 0;
 let score = 0;
+
 function checkAnswer(answer) {
   if(answer != STORE[page-1].correct) {
     console.log('wrong');
@@ -98,10 +99,12 @@ function displayAnswer(checkedAnswer) {
   $('#js-submit-button').hide();
   if(checkedAnswer){
     console.log('yes');
-    $('fieldset').after('<p>Correct</p><button id="js-next-button">next</button>');
+    $('.submit').after('<button id="js-next-button">next</button>');
+    $('.answer').html('<p class="answer">Correct!</p>');
   } else {
     console.log('no');
-    $('fieldset').after(`<p>${STORE[page-1].correct} is the correct answer.</p><button id="js-next-button">next</button>`);
+    $('.submit').after('<button id="js-next-button">next</button>');
+    $('.answer').html(`<p class="answer">- ${STORE[page-1].correct} is the correct answer -</p>`);
   }
   
   
@@ -110,7 +113,7 @@ function displayAnswer(checkedAnswer) {
 function pressedSubmit() {
   $('#container').on('click', '#js-submit-button', function(e){
     e.preventDefault();
-    let answer = $('input:checked').siblings('label', 'for').text();
+    let answer = $('input:checked').siblings('label').text();
     let checkedAnswer = checkAnswer(answer);
     displayAnswer(checkedAnswer);
     page++;
@@ -123,28 +126,38 @@ function questionTemplate() {
     <section id="question-page" role="main">
     <h2 id="question">${STORE[page-1].question}</h2>
     <form>
-      <fieldset>
+      <fieldset id='questionForm'>
+        <legend>
+          Question ${page}
+        </legend>
         <div>
-          <input class="answer" type="radio" name="option" checked></input>
-          <label for = "${STORE[page-1].ans1}">${STORE[page-1].ans1}</label>
+          <input id="answer1" type="radio" name="option" checked></input>
+          <label for = "answer1">${STORE[page-1].ans1}</label>
         </div>
   
         <div>
-          <input class="answer" type="radio" name="option"></input>
-          <label for = "${STORE[page-1].ans2}">${STORE[page-1].ans2}</label>
+          <input id="answer2" type="radio" name="option"></input>
+          <label for ="answer2">${STORE[page-1].ans2}</label>
         </div>
   
         <div>
-          <input class="answer" type="radio" name="option"></input>
-          <label for = "${STORE[page-1].ans3}">${STORE[page-1].ans3}</label>
+          <input id="answer3" type="radio" name="option"></input>
+          <label for ="answer3">${STORE[page-1].ans3}</label>
         </div>
   
         <div>
-          <input class="answer" type="radio" name="option"></input>
-          <label for = "${STORE[page-1].ans4}">${STORE[page-1].ans4}</label>
+          <input id="answer4" type="radio" name="option"></input>
+          <label for = "answer4">${STORE[page-1].ans4}</label>
         </div>
-      </fieldset>  
-      <button id="js-submit-button">Submit</button>
+      </fieldset>
+      <section class='inline'>
+        <section class='submit'>
+          <button id="js-submit-button">Submit</button>
+        </section>
+        <p>${score} out of ${page-1} correct</p>
+      </section>
+      <section class='answer'>
+      </section>
     </form>
   </section>
   `;
@@ -161,6 +174,7 @@ function playAgain() {
   $('#container').on('click', '#js-button-play-again', e => {
     page =1;
     score =0;
+    
     renderPage();
   });
 };
