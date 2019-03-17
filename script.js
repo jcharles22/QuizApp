@@ -16,7 +16,7 @@ const STORE =[
   correct: "Rainbow Road"
 },
 {
-  question: "What is Master Chief's first Name from Halo",
+  question: "What is Master Chief's first Name from Halo?",
   ans1: 'Ryan',
   ans2: 'John',
   ans3: 'David',
@@ -106,8 +106,6 @@ function displayAnswer(checkedAnswer) {
     $('.submit').after('<button id="js-next-button">next</button>');
     $('.answer').html(`<p class="answer">- ${STORE[page-1].correct} is the correct answer -</p>`);
   }
-  
-  
 }
 
 function pressedSubmit() {
@@ -161,7 +159,6 @@ function questionTemplate() {
     </form>
   </section>
   `;
-
 }
 function pressedNext() {
   $("#container").on('click', '#js-next-button', e => {
@@ -195,7 +192,6 @@ function renderPage() {
   else{
     results();
   }
-
 }
 
 function pressedStart() {

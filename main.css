@@ -13,6 +13,7 @@ body {
     margin-top: 25px;
     border: 2px solid #C8DEFF;
     min-width: 320px;
+    max-width: 525px;
     height: 600px;
     margin-left: auto;
     margin-right:auto;
@@ -42,6 +43,7 @@ button {
     color:#3B3F45;
     margin-top: 20px;
     font-size: 20px;
+    cursor: pointer;
 }
 .inline{
     display: flex;
@@ -54,7 +56,7 @@ button {
 #js-submit-button, #js-next-button {
     margin-right:auto;
     height: 23px;
-    width: 75px;
+    width: 75px;  
 }
 
 p {
@@ -68,9 +70,11 @@ p {
 label:hover {
     font-weight: bold;
     opacity: 1;
+    cursor: pointer;
 }
 input:checked + label {
     opacity: 1;
+    cursor: pointer;
 }
 #container {
     text-align:center;
@@ -89,8 +93,7 @@ label {
 
 @media screen and (min-width: 525px) {
     body {
-        width: 525px;
-        
+        width: 525px; 
     }
     label {
         font-size: 22px;
